@@ -1,0 +1,68 @@
+{
+  "$schema": "https://claude.ai/settings-schema.json",
+  "description": "Base Claude Code settings for @tcs-bpi/ai-team. Common permissions and hooks shared across all role configurations.",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "TodoWrite"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "pre-commit": {
+      "command": "bash ./claude-code/hooks/pre-commit-review.sh",
+      "description": "Run quick code review checks on staged changes before committing",
+      "enabled": true
+    },
+    "pre-tool": {
+      "command": "bash ./claude-code/hooks/pre-tool-guard.sh",
+      "description": "Enforce role-based file and tool boundaries",
+      "enabled": true,
+      "env": {
+        "AI_TEAM_ROLE_FILE": ".ai-team-role"
+      }
+    }
+  },
+  "environment": {
+    "AI_TEAM_ROLE": "",
+    "AI_TEAM_ROLE_FILE": ".ai-team-role",
+    "MAX_DIFF_LINES": "500",
+    "SKIP_REVIEW": "false"
+  },
+  "mcpServers": {},
+  "skills": {
+    "code-review": {
+      "path": "./claude-code/skills/code-review/SKILL.md",
+      "description": "Structured code review with severity levels"
+    },
+    "security-audit": {
+      "path": "./claude-code/skills/security-audit/SKILL.md",
+      "description": "OWASP Top 10 and dependency vulnerability audit"
+    },
+    "db-migration": {
+      "path": "./claude-code/skills/db-migration/SKILL.md",
+      "description": "Database migration review and creation"
+    },
+    "write-docs": {
+      "path": "./claude-code/skills/write-docs/SKILL.md",
+      "description": "Generate API docs, README sections, and inline comments"
+    },
+    "plan-sprint": {
+      "path": "./claude-code/skills/plan-sprint/SKILL.md",
+      "description": "Sprint planning with task breakdown and estimation"
+    },
+    "run-tests": {
+      "path": "./claude-code/skills/run-tests/SKILL.md",
+      "description": "Run tests, analyze failures, and suggest fixes"
+    }
+  },
+  "rules": [
+    "Always read files before modifying them.",
+    "Never add new dependencies without user approval.",
+    "Never force-push to main or master.",
+    "Follow the project's existing code style and conventions.",
+    "Include both the file path and line number when referencing code in reviews."
+  ]
+}

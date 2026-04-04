@@ -1,0 +1,72 @@
+{
+  "$schema": "https://claude.ai/settings-schema.json",
+  "description": "Strict read-only settings for planning and review roles (project-manager, security-analyst, technical-writer, tech-lead). Extends base.json with restricted write permissions.",
+  "extends": "./base.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "TodoWrite",
+      "Bash(git log *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(tree *)",
+      "Bash(npm audit *)",
+      "Bash(npx depcheck *)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(mv *)",
+      "Bash(cp *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(npm install *)",
+      "Bash(npm run build *)",
+      "Bash(npm run dev *)",
+      "Bash(docker *)",
+      "Bash(kubectl *)",
+      "Bash(terraform *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(git reset *)",
+      "Bash(git checkout *)",
+      "Bash(git rebase *)",
+      "Bash(git merge *)"
+    ]
+  },
+  "hooks": {
+    "pre-tool": {
+      "command": "bash ./claude-code/hooks/pre-tool-guard.sh",
+      "description": "Enforce strict read-only boundaries for review and planning roles",
+      "enabled": true,
+      "env": {
+        "AI_TEAM_ROLE_FILE": ".ai-team-role"
+      }
+    }
+  },
+  "rules": [
+    "You are operating in READ-ONLY mode. Do not modify source code.",
+    "You may only write to documentation files (.md), planning files, and ADRs.",
+    "Use the Read, Glob, and Grep tools to explore the codebase.",
+    "When you identify issues, report them with file paths and line numbers.",
+    "Do not run build, test, or deployment commands.",
+    "Do not install or remove dependencies.",
+    "If a task requires code changes, describe what should be changed and hand off to a developer role."
+  ],
+  "applicableRoles": [
+    "project-manager",
+    "security-analyst",
+    "technical-writer",
+    "tech-lead"
+  ]
+}

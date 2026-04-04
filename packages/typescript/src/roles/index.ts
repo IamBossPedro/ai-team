@@ -1,0 +1,9 @@
+export { BackendDeveloper } from "./backend-developer.js";
+export { QAEngineer } from "./qa-engineer.js";
+export { ProjectManager } from "./project-manager.js";
+export { TechLead } from "./tech-lead.js";
+export { FrontendDeveloper } from "./frontend-developer.js";
+export { DevOpsEngineer } from "./devops-engineer.js";
+export { DBA } from "./dba.js";
+export { SecurityAnalyst } from "./security-analyst.js";
+export { TechnicalWriter } from "./technical-writer.js";

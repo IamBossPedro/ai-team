@@ -1,0 +1,65 @@
+{
+  "$schema": "https://claude.ai/settings-schema.json",
+  "description": "Full development permissions for developer roles (backend-developer, frontend-developer, dba, devops-engineer, qa-engineer). Extends base.json with write and execution permissions.",
+  "extends": "./base.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash",
+      "TodoWrite",
+      "NotebookEdit"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf /*)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fd *)",
+      "Bash(chmod 777 *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)",
+      "Bash(eval *)"
+    ]
+  },
+  "hooks": {
+    "pre-commit": {
+      "command": "bash ./claude-code/hooks/pre-commit-review.sh",
+      "description": "Run automated code review checks before committing",
+      "enabled": true
+    },
+    "pre-tool": {
+      "command": "bash ./claude-code/hooks/pre-tool-guard.sh",
+      "description": "Enforce role-specific file boundaries even in full-access mode",
+      "enabled": true,
+      "env": {
+        "AI_TEAM_ROLE_FILE": ".ai-team-role"
+      }
+    }
+  },
+  "environment": {
+    "AI_TEAM_ROLE": "",
+    "AI_TEAM_ROLE_FILE": ".ai-team-role"
+  },
+  "rules": [
+    "You have full write access but must still respect role boundaries enforced by the pre-tool guard.",
+    "Always read files before modifying them.",
+    "Run the linter or type checker after making changes to verify correctness.",
+    "Write tests for new functionality. Do not skip testing.",
+    "Never add new dependencies without documenting the reason and getting user confirmation.",
+    "Never force-push or rewrite history on shared branches.",
+    "Keep commits atomic: one logical change per commit.",
+    "Do not modify files outside your role's scope without switching roles first."
+  ],
+  "applicableRoles": [
+    "backend-developer",
+    "frontend-developer",
+    "dba",
+    "devops-engineer",
+    "qa-engineer"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@tcs-bpi/ai-team",
+  "version": "0.1.0",
+  "description": "AI agent team with IT project roles — TypeScript SDK",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "roles"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TCS-BPI/ai-team.git",
+    "directory": "packages/typescript"
+  },
+  "license": "MIT"
+}
