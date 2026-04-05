@@ -1,0 +1,9 @@
+name: Code Review
+task_type: code-review
+stages:
+  - role: tech-lead
+    action: review
+    required: true
+  - role: security-analyst
+    action: security-check
+    required: false

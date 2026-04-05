@@ -1,0 +1,9 @@
+name: Infrastructure
+task_type: infrastructure
+stages:
+  - role: devops-engineer
+    action: implement
+    required: true
+  - role: security-analyst
+    action: review
+    required: false

@@ -1,0 +1,12 @@
+name: Security Review
+task_type: security-review
+stages:
+  - role: security-analyst
+    action: audit
+    required: true
+  - role: backend-developer
+    action: fix
+    required: false
+  - role: security-analyst
+    action: verify
+    required: true

@@ -1,0 +1,6 @@
+name: Testing
+task_type: testing
+stages:
+  - role: qa-engineer
+    action: write-tests
+    required: true

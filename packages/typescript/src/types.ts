@@ -91,6 +91,7 @@ export interface PipelineStage {
   role: AgentRole;
   action: string;
   required: boolean;
+  parallel?: boolean;
 }
 
 export interface AgentConfig {

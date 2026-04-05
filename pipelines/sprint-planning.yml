@@ -1,0 +1,9 @@
+name: Sprint Planning
+task_type: sprint-planning
+stages:
+  - role: project-manager
+    action: plan
+    required: true
+  - role: tech-lead
+    action: estimate
+    required: true

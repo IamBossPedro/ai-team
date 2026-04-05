@@ -1,0 +1,12 @@
+name: Database Migration
+task_type: db-migration
+stages:
+  - role: dba
+    action: design
+    required: true
+  - role: backend-developer
+    action: integrate
+    required: true
+  - role: qa-engineer
+    action: verify
+    required: true

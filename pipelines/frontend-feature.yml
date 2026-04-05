@@ -1,0 +1,12 @@
+name: Frontend Feature
+task_type: frontend-feature
+stages:
+  - role: tech-lead
+    action: plan
+    required: true
+  - role: frontend-developer
+    action: implement
+    required: true
+  - role: qa-engineer
+    action: test
+    required: true

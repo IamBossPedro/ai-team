@@ -1,0 +1,12 @@
+name: Backend Feature
+task_type: backend-feature
+stages:
+  - role: tech-lead
+    action: plan
+    required: true
+  - role: backend-developer
+    action: implement
+    required: true
+  - role: qa-engineer
+    action: test
+    required: true

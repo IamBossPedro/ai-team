@@ -1,0 +1,12 @@
+name: Bug Fix
+task_type: bug-fix
+stages:
+  - role: qa-engineer
+    action: reproduce
+    required: true
+  - role: backend-developer
+    action: fix
+    required: true
+  - role: qa-engineer
+    action: verify
+    required: true

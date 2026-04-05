@@ -21,11 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build TypeScript SDK
+        run: cd packages/typescript && npx tsc
+
+      - name: Build CLI
+        run: cd cli && npx tsc
 
       - name: Test
-        run: npm test
+        run: cd packages/typescript && npx vitest run
 
   python:
     name: Python

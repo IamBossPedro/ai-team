@@ -1,0 +1,9 @@
+name: Documentation
+task_type: documentation
+stages:
+  - role: technical-writer
+    action: write
+    required: true
+  - role: tech-lead
+    action: review
+    required: false
