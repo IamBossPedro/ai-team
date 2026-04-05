@@ -81,7 +81,8 @@ async def execute_parallel_group(
     for i, outcome in enumerate(results_raw):
         if isinstance(outcome, BaseException):
             if group.stages[i].required:
-                errors.append(outcome if isinstance(outcome, Exception) else Exception(str(outcome)))
+                err = outcome if isinstance(outcome, Exception) else Exception(str(outcome))
+                errors.append(err)
         elif isinstance(outcome, TaskResult):
             results.append(outcome)
 
