@@ -1,6 +1,6 @@
 # @tcs-bpi/ai-team
 
-[![CI](https://github.com/TCS-BPI/ai-team/actions/workflows/ci.yml/badge.svg)](https://github.com/TCS-BPI/ai-team/actions/workflows/ci.yml)
+[![CI](https://github.com/IamBossPedro/TCS-BPI-SOW5-DBA-ai-team/actions/workflows/ci.yml/badge.svg)](https://github.com/IamBossPedro/TCS-BPI-SOW5-DBA-ai-team/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)](https://www.typescriptlang.org/)
 [![Python](https://img.shields.io/badge/Python-3.11+-yellow)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -30,7 +30,7 @@ npx @tcs-bpi/ai-team-cli
 ### Git submodule
 
 ```bash
-git submodule add https://github.com/TCS-BPI/ai-team.git lib/ai-team
+git submodule add https://github.com/IamBossPedro/TCS-BPI-SOW5-DBA-ai-team.git lib/ai-team
 ```
 
 ## Architecture

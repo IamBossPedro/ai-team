@@ -95,7 +95,7 @@ Add the ai-team repo as a git submodule in your project:
 
 ```bash
 cd your-project
-git submodule add https://github.com/TCS-BPI/ai-team.git lib/ai-team
+git submodule add https://github.com/IamBossPedro/TCS-BPI-SOW5-DBA-ai-team.git lib/ai-team
 ```
 
 Then copy the skills you need into your project's `.claude/skills/` directory:

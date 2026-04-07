@@ -11,7 +11,7 @@ Claude Code is the fastest way to start. No installation or API key needed.
 ### 1. Add the ai-team submodule to your project
 
 ```bash
-git submodule add https://github.com/TCS-BPI/ai-team.git lib/ai-team
+git submodule add https://github.com/IamBossPedro/TCS-BPI-SOW5-DBA-ai-team.git lib/ai-team
 ```
 
 ### 2. Copy skills into your project
